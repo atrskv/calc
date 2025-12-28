@@ -14,13 +14,19 @@ platform :ios do
   end
 
   desc "Run tests"
-  lane :test do
+  lane :test do |options|
+    device = options[:device] || "iPhone 16"
+    ios_version = options[:ios_version] || "18.3"
+    
+    device_spec = "#{device} (#{ios_version})"
+    
     scan(
       scheme: "calc",
       clean: true,
       result_bundle: true,
       output_directory: "test_results",
-      device: "iPhone 16 (18.3)"
+      device: device_spec,
+      skip_codesigning: true
     )
     puts "OK"
     puts "Report: test_results/*.xcresult"
