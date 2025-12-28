@@ -7,13 +7,6 @@
 	objects = {
 
 /* Begin PBXContainerItemProxy section */
-		E138BE5F2EF99D6600875FEC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E138BE402EF99D6400875FEC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E138BE472EF99D6400875FEC;
-			remoteInfo = calc;
-		};
 		E138BE692EF99D6600875FEC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E138BE402EF99D6400875FEC /* Project object */;
@@ -25,7 +18,6 @@
 
 /* Begin PBXFileReference section */
 		E138BE482EF99D6400875FEC /* calc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = calc.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E138BE5E2EF99D6600875FEC /* calcTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = calcTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E138BE682EF99D6600875FEC /* calcUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = calcUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -63,13 +55,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E138BE5B2EF99D6600875FEC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		E138BE652EF99D6600875FEC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -93,7 +78,6 @@
 			isa = PBXGroup;
 			children = (
 				E138BE482EF99D6400875FEC /* calc.app */,
-				E138BE5E2EF99D6600875FEC /* calcTests.xctest */,
 				E138BE682EF99D6600875FEC /* calcUITests.xctest */,
 			);
 			name = Products;
@@ -123,26 +107,6 @@
 			productName = calc;
 			productReference = E138BE482EF99D6400875FEC /* calc.app */;
 			productType = "com.apple.product-type.application";
-		};
-		E138BE5D2EF99D6600875FEC /* calcTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E138BE762EF99D6600875FEC /* Build configuration list for PBXNativeTarget "calcTests" */;
-			buildPhases = (
-				E138BE5A2EF99D6600875FEC /* Sources */,
-				E138BE5B2EF99D6600875FEC /* Frameworks */,
-				E138BE5C2EF99D6600875FEC /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E138BE602EF99D6600875FEC /* PBXTargetDependency */,
-			);
-			name = calcTests;
-			packageProductDependencies = (
-			);
-			productName = calcTests;
-			productReference = E138BE5E2EF99D6600875FEC /* calcTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		E138BE672EF99D6600875FEC /* calcUITests */ = {
 			isa = PBXNativeTarget;
@@ -180,10 +144,6 @@
 					E138BE472EF99D6400875FEC = {
 						CreatedOnToolsVersion = 16.2;
 					};
-					E138BE5D2EF99D6600875FEC = {
-						CreatedOnToolsVersion = 16.2;
-						TestTargetID = E138BE472EF99D6400875FEC;
-					};
 					E138BE672EF99D6600875FEC = {
 						CreatedOnToolsVersion = 16.2;
 						TestTargetID = E138BE472EF99D6400875FEC;
@@ -205,7 +165,6 @@
 			projectRoot = "";
 			targets = (
 				E138BE472EF99D6400875FEC /* calc */,
-				E138BE5D2EF99D6600875FEC /* calcTests */,
 				E138BE672EF99D6600875FEC /* calcUITests */,
 			);
 		};
@@ -213,13 +172,6 @@
 
 /* Begin PBXResourcesBuildPhase section */
 		E138BE462EF99D6400875FEC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E138BE5C2EF99D6600875FEC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -243,13 +195,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E138BE5A2EF99D6600875FEC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		E138BE642EF99D6600875FEC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -260,11 +205,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		E138BE602EF99D6600875FEC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E138BE472EF99D6400875FEC /* calc */;
-			targetProxy = E138BE5F2EF99D6600875FEC /* PBXContainerItemProxy */;
-		};
 		E138BE6A2EF99D6600875FEC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = E138BE472EF99D6400875FEC /* calc */;
@@ -294,7 +234,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.calc;
+				PRODUCT_BUNDLE_IDENTIFIER = com.calc.unique;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -458,44 +398,6 @@
 			};
 			name = Release;
 		};
-		E138BE772EF99D6600875FEC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 95V2WWP7KB;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.calcTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/calc.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/calc";
-			};
-			name = Debug;
-		};
-		E138BE782EF99D6600875FEC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 95V2WWP7KB;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.calcTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/calc.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/calc";
-			};
-			name = Release;
-		};
 		E138BE7A2EF99D6600875FEC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -547,15 +449,6 @@
 			buildConfigurations = (
 				E138BE722EF99D6600875FEC /* Debug */,
 				E138BE732EF99D6600875FEC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E138BE762EF99D6600875FEC /* Build configuration list for PBXNativeTarget "calcTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E138BE772EF99D6600875FEC /* Debug */,
-				E138BE782EF99D6600875FEC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
