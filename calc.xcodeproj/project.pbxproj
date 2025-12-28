@@ -48,11 +48,6 @@
 			path = calc;
 			sourceTree = "<group>";
 		};
-		E138BE612EF99D6600875FEC /* calcTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = calcTests;
-			sourceTree = "<group>";
-		};
 		E138BE6B2EF99D6600875FEC /* calcUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = calcUITests;
@@ -89,7 +84,6 @@
 			isa = PBXGroup;
 			children = (
 				E138BE4A2EF99D6400875FEC /* calc */,
-				E138BE612EF99D6600875FEC /* calcTests */,
 				E138BE6B2EF99D6600875FEC /* calcUITests */,
 				E138BE492EF99D6400875FEC /* Products */,
 			);
@@ -142,9 +136,6 @@
 			);
 			dependencies = (
 				E138BE602EF99D6600875FEC /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				E138BE612EF99D6600875FEC /* calcTests */,
 			);
 			name = calcTests;
 			packageProductDependencies = (
