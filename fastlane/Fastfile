@@ -6,9 +6,7 @@ platform :ios do
   lane :build do
     gym(
       scheme: "calc",
-      clean: true,
-      skip_archive: true,
-      skip_codesigning: true
+      clean: true
     )
     puts "OK"
   end
@@ -18,15 +16,13 @@ platform :ios do
     device = options[:device] || "iPhone 16"
     ios_version = options[:ios_version] || "18.3"
     
-    device_spec = "#{device} (#{ios_version})"
-    
     scan(
       scheme: "calc",
       clean: true,
       result_bundle: true,
       output_directory: "test_results",
-      device: device_spec,
-      skip_codesigning: true
+      device: "#{device} (#{ios_version})",
+      skip_build: true
     )
     puts "OK"
     puts "Report: test_results/*.xcresult"

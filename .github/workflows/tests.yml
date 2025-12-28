@@ -1,0 +1,92 @@
+name: iOS Tests
+
+on:
+  workflow_dispatch:
+    inputs:
+      device:
+        required: true
+        default: 'iPhone 16'
+        type: string
+      ios_version:
+        required: true
+        default: '18.3'
+        type: string
+
+jobs:
+  test:
+    runs-on: self-hosted
+    timeout-minutes: 30
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Clean old results
+        run: rm -rf test_results allure-results allure-report || true
+      
+      - name: Install fastlane if needed
+        run: |
+          if ! command -v fastlane &> /dev/null; then
+            echo "Installing fastlane..."
+            sudo gem install fastlane
+          fi
+      
+      - name: Run tests
+        run: fastlane ios test device:"${{ github.event.inputs.device }}" ios_version:"${{ github.event.inputs.ios_version }}"
+      
+      - name: Install xcresults
+        if: always()
+        run: |
+          if ! command -v xcresults &> /dev/null; then
+            mkdir -p ~/.local/bin
+            curl -L https://github.com/eroshenkoam/xcresults/releases/latest/download/xcresults -o ~/.local/bin/xcresults
+            chmod +x ~/.local/bin/xcresults
+            echo "$HOME/.local/bin" >> $GITHUB_PATH
+          fi
+      
+      - name: Convert to Allure
+        if: always()
+        run: |
+          XCRESULT=$(find test_results -name "*.xcresult" | head -1)
+          if [ -n "$XCRESULT" ]; then
+            xcresults export "$XCRESULT" allure-results
+          else
+            echo "No test results found"
+          fi
+      
+      - name: Install Allure
+        if: always()
+        run: |
+          if ! command -v allure &> /dev/null; then
+            brew install allure
+          fi
+      
+      - name: Generate Allure report
+        if: always()
+        run: |
+          if [ -d "allure-results" ] && [ "$(ls -A allure-results)" ]; then
+            allure generate allure-results -o allure-report --clean
+          else
+            echo "No test results to generate report"
+          fi
+      
+      - name: Deploy to Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./allure-report
+          publish_branch: gh-pages
+          force_orphan: true
+      
+      - name: Create summary
+        if: always()
+        run: |
+          echo "## iOS Tests Report" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Device:** ${{ github.event.inputs.device }}" >> $GITHUB_STEP_SUMMARY
+          echo "**iOS Version:** ${{ github.event.inputs.ios_version }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ -d "allure-report" ]; then
+            echo "📊 [View Report](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/)" >> $GITHUB_STEP_SUMMARY
+          fi
